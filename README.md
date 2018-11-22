@@ -167,3 +167,4 @@ Myndir frá:
 | 0.1    | Fyrsta útgáfa                         |
 | 0.2    | Setja inn auka efni í `lectures.json` |
 "# hopverkefni2" 
+"# hopverkefni2" 
