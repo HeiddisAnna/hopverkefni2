@@ -10,20 +10,12 @@ export default class List {
 
   load() {
     this.loadLectures()
-      //.then(data => this.addSaved(data.lectures[0]))
-      //.then(data => this.showList(data)) //Þetta er bara fyrsta
-
-      //.then(data => this.show(data.lectures[0])) //Virkar til að sýna fyrsta
-      //console.log('Fyrsta kall data.lectures[0]: ' + data.lectures[0]);
-
       .then(data => this.showList(data)) //Sendum lista af öllum gögnunum inn í fallið
-
-      
 
       .catch((error) => {
         console.error(error);
         this.setError(error.message);
-      });
+      });  
   }
 
   loadLectures() {
@@ -50,32 +42,53 @@ export default class List {
   }
 
   show(data){
-
+    
     const image = el('div'); //Búum til klasa fyrir mydina
     image.classList.add('index__lectureImage'); //Skýrum klasann
     const img = el('img'); //Búum til element fyrir myndina
     img.classList.add('index__lectureImg'); //Skýrum klasann
     //Sækjum myndina af hún er til staðar
-    console.log(data.thumbnail);
     if(data.thumbnail){
       img.setAttribute('src', data.thumbnail); //setjum myndina inn í img
     }
     img.setAttribute('alt', data.title); //Skýringartexti við myndina
     image.appendChild(img); //festum img á image
 
-    const category = el('a' , data.category);
+    const category = el('a' , data.category);  //Af hvaða tegund er verkefnið
     category.classList.add('index__lectureCategory');
-    category.setAttribute('href', '/fyrirlestur.html?slug'+data.slug);  //Af hverju ekki rautt undir!??
+    category.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);  //Af hverju ekki rautt undir!??
     
-    const heading = el('h2', data.title);
+    const heading = el('h2', data.title);  //Ná í heitið á verkefninu
     heading.classList.add('index__lectureTitle');
 
-    const finished = el('h1', data.finishd, data.toString()); //Bara með þetta til að penta einhvern streng
-    const textElement= el('div', heading, category, finished);
+    console.log('data.finished: ' + data.finished); //Virkar ekki!
 
-    const finalItem = el('a', image, textElement);
-    this.containerRow.appendChild(finalItem)
+    //const finished = el('h1', data.finished, data.toString()); //Bara með þetta til að penta einhvern streng
+    const finished__image = el('div'); //Búum til klasa fyrir mydina
+    finished__image.classList.add('finished__image'); //Skýrum klasann
+    //const finished__img = el('img'); //Búum til element fyrir myndina
+    const finished__img = el('img'); 
+    img.classList.add('finished__img'); //Skýrum klasann
+    finished__image.appendChild(finished__img);
 
+    const index__lectureText= el('div', category, heading);
+    index__lectureText.classList.add('index__lectureText');
+
+    const textElement= el('div', index__lectureText, finished__image);
+    textElement.classList.add('index__textElement');
+
+    if(data.thumbnail){
+      const finalItem = el('a', image, textElement);
+      finalItem.classList.add('lectureContainer');
+      finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
+      this.containerRow.appendChild(finalItem);
+    } else {
+      const finalItem = el('a', textElement);
+      finalItem.classList.add('lectureContainer');
+      finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
+      this.containerRow.appendChild(finalItem);
+    }
+  
     return '';
   }
 

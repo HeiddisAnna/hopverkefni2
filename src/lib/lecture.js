@@ -7,15 +7,17 @@ export default class List {
       this.url='../lectures.json';
     }
 
+    //Er ekki að virka!
+    //Hoppa á milli vistaðs og ekki vistaðs
     finished(e){
         const qs = new URLSearchParams(window.location.search);
-      console.log(qs);
-      const slug = ps.get('slug');
+        console.log(qs);
+        const slug = ps.get('slug');
 
         savedLectures(slug)
-        // const = ???
-        //Nota loadSavedLectures til að hoppa á milli
+        const saved = loadSavedLectures();
 
+        return saved;
 
     }
   
@@ -34,7 +36,7 @@ export default class List {
       //Sækja alla, til að finna rétta.
 
       const finished = el('a', 'Finishd');
-      finished.setAttribute('href', '/fyrirlestur.html?slug' +slug); //þarf að laga þetta
+      finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); //þarf að laga þetta
       finished.addEventListener('click', this.finished); 
       this.container.appendChild(finished);
 

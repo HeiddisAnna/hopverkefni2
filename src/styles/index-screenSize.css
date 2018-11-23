@@ -1,0 +1,33 @@
+
+@media (min-width: 800px){
+
+  .list__row {
+      justify-content: space-between;
+    }
+    
+    .lectureContainer {
+      width: 32.2%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+}
+
+@media (max-width: 1200px){
+  .list__row{
+    padding-left: 20px;/*$gutter;*/
+    padding-right: 20px /*$gutter;*/
+  }
+}
+
+
+@media(max-width: 799px){
+  .list__row {
+      justify-content: center;
+    }
+    
+    .lectureContainer {
+      width: 100%;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+}

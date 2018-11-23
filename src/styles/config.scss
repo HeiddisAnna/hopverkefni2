@@ -22,3 +22,18 @@ $font-heading: "Roboto Mono", "Courier New", monospace;
 @mixin offset-left($cols: 0) {
  margin-left: ($cols/12 * 100) * 1%;
 }
+
+@mixin set-transition($property) {
+    transition: $property 0.3s ease-in-out;
+  }
+  
+  $color-black: #000;
+  $color-darkGrey:#999;
+  $color-grey: #aaa;
+  $color-white: #ccc;
+  $color-green: #2d2;
+  $color-dankGreen: #1a1;
+  $color-nude: #fcffd2;
+  $color-pink: #cc9694; 
+
+

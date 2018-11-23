@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isLecturePage) {
    const lecture = new Lecture();
    lecture.load();
+   console.log('Er á lecture síðu');
    
   } else {
     const list = new List();
     list.load();
+    console.log('Er á fyrirlestra síðu');
   } 
 });
 
