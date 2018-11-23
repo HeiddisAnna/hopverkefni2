@@ -6,7 +6,14 @@ export default class List {
     this.container = document.querySelector('.list');
     this.containerRow = document.querySelector('.list__row');
     this.url='../lectures.json';
+    //this.buttons = document.querySelector('.button');
+    //buttons.addEventListener('submit', sort);
   }
+  /*
+  sort(e) {
+    console.log('Komst hingað');
+  }
+  */
 
   load() {
     this.loadLectures()
