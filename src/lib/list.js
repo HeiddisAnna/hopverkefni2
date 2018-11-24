@@ -7,37 +7,90 @@ export default class List {
     this.containerRow = document.querySelector('.list__row');
     this.url='../lectures.json';
     //this.buttons = document.querySelector('.button');
-    //buttons.addEventListener('submit', sort);
-  }
-  /*
-  sort(e) {
-    console.log('Komst hingað');
-  }
-  */
 
+    //Þegar ítt er á takka þarf að sína rétta fyrilestra
+    this.HTMLButton=document.getElementById('button__HTML');
+    this.CSSButton=document.getElementById('button__CSS');
+    this.JSButton=document.getElementById('button__JavaScript');
+    this.HTMLButton.addEventListener('click', this.sortHTMLFunction);
+    this.CSSButton.addEventListener('click', this.sortCSSFunction);
+    this.JSButton.addEventListener('click', this.sortJSFunction);
+  }
+  
+  
+  showHTMLData(){
+    
+    return '';
+  }
+  
   load() {
     this.loadLectures()
-      .then(data => this.showList(data)) //Sendum lista af öllum gögnunum inn í fallið
-
-      .catch((error) => {
-        console.error(error);
-        this.setError(error.message);
-      });  
+    .then(data => this.showList(data)) //Sendum lista af öllum gögnunum inn í fallið
+    
+    .catch((error) => {
+      console.error(error);
+      this.setError(error.message);
+    });  
   }
-
+  
   loadLectures() {
     return fetch(this.url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Villa við að sækja fyrirlestra');
-        }
-        return res.json();
-      });
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Villa við að sækja fyrirlestra');
+      }
+      return res.json();
+    });
   }
-   
+  
   setError(errorMessage){
     displayError(errorMessage); 
   }
+  
+  sortHTMLFunction(e) {
+    e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
+
+    this.containerRow = document.querySelector('.list__row');
+    console.log(e.target.classList.value);
+    
+    if(e.target.id == 'button__HTML'){
+        for(let i= 1; i<=this.containerRow.children.length; i++){
+          if(this.containerRow.childNodes[i].id !== 'html'){
+            this.containerRow.childNodes[i].classList.toggle('invisible');
+          } 
+        }
+    }
+  }
+  sortCSSFunction(e) {
+    e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
+
+    this.containerRow = document.querySelector('.list__row');
+
+    if(e.target.id == 'button__CSS'){
+      console.log('ítti á html button');
+        for(let i= 1; i<=this.containerRow.children.length; i++){
+          if(this.containerRow.childNodes[i].id !== 'css'){
+            this.containerRow.childNodes[i].classList.toggle('invisible');
+          } 
+        }
+    }
+  }
+  sortJSFunction(e) {
+    e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
+
+    this.containerRow = document.querySelector('.list__row');
+
+    if(e.target.id == 'button__JavaScript'){
+      console.log('ítti á html button');
+        for(let i= 1; i<=this.containerRow.children.length; i++){
+          console.log(this.containerRow.childNodes[i].id);
+          if(this.containerRow.childNodes[i].id !== 'javascript'){
+            this.containerRow.childNodes[i].classList.toggle('invisible');
+          } 
+        }
+    }
+  }
+
 
   addSaved(data){
     //Nota lúbbu hér
@@ -87,10 +140,12 @@ export default class List {
     if(data.thumbnail){
       const finalItem = el('a', image, textElement);
       finalItem.classList.add('lectureContainer');
+      finalItem.setAttribute('id', data.category);
       finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
       this.containerRow.appendChild(finalItem);
     } else {
       const finalItem = el('a', textElement);
+      finalItem.setAttribute('id', data.category);
       finalItem.classList.add('lectureContainer');
       finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
       this.containerRow.appendChild(finalItem);
