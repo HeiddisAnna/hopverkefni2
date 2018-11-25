@@ -41,6 +41,9 @@ main {
   margin-bottom: $gutter;
   align-items: flex-end;
 }
+.index__textElement:hover {
+  background-color: $color-darkGrey
+}
 
 .finished__image {
   background-color: $color-pink;
