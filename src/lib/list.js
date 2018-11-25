@@ -49,45 +49,68 @@ export default class List {
   
   sortHTMLFunction(e) {
     e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
-
+    this.CSSButton = document.getElementById('button__CSS');
+    this.JSButton = document.getElementById('button__JavaScript');
     this.containerRow = document.querySelector('.list__row');
-    console.log(e.target.classList.value);
-    
+
+    console.log(this.CSSButton.classList.value);
+
+    //Ef ekki er búið að ýta á hina takkana látum við allt nema HTML-ið hverfa
     if(e.target.id == 'button__HTML'){
-        for(let i= 1; i<=this.containerRow.children.length; i++){
+      for(let i= 1; i<=this.containerRow.children.length; i++){
+        //Ef ekki er búið að íta á annan takka, látum við allt annað en css hverfa
+        if((this.CSSButton.classList.value === 'button') && (this.JSButton.classList.value === 'button')){
           if(this.containerRow.childNodes[i].id !== 'html'){
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
+        } else { //Annars látum við css birtast
+          if(this.containerRow.childNodes[i].id === 'html'){
+            this.containerRow.childNodes[i].classList.toggle('invisible');
+          } 
         }
+      }
     }
   }
   sortCSSFunction(e) {
     e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
-
+    this.HTMLButton = document.getElementById('button__HTML');
+    this.JSButton = document.getElementById('button__JavaScript');
     this.containerRow = document.querySelector('.list__row');
 
     if(e.target.id == 'button__CSS'){
-      console.log('ítti á html button');
-        for(let i= 1; i<=this.containerRow.children.length; i++){
+      for(let i= 1; i<=this.containerRow.children.length; i++){
+        //Ef ekki er búið að íta á annan takka, látum við allt annað en css hverfa
+        if((this.HTMLButton.classList.value === 'button') && (this.JSButton.classList.value === 'button')){
           if(this.containerRow.childNodes[i].id !== 'css'){
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
+        } else { //Annars látum við css birtast
+          if(this.containerRow.childNodes[i].id === 'css'){
+            this.containerRow.childNodes[i].classList.toggle('invisible');
+          } 
         }
+      }
     }
   }
   sortJSFunction(e) {
     e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
-
+    this.HTMLButton = document.getElementById('button__HTML');
+    this.CSSButton = document.getElementById('button__CSS');
     this.containerRow = document.querySelector('.list__row');
 
     if(e.target.id == 'button__JavaScript'){
-      console.log('ítti á html button');
-        for(let i= 1; i<=this.containerRow.children.length; i++){
-          console.log(this.containerRow.childNodes[i].id);
+      for(let i= 1; i<=this.containerRow.children.length; i++){
+        //Ef ekki er búið að íta á annan takka, látum við allt annað en css hverfa
+        if((this.HTMLButton.classList.value === 'button') && (this.CSSButton.classList.value === 'button')){
           if(this.containerRow.childNodes[i].id !== 'javascript'){
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
+        } else { //Annars látum við css birtast
+          if(this.containerRow.childNodes[i].id === 'javascript'){
+            this.containerRow.childNodes[i].classList.toggle('invisible');
+          } 
         }
+      }
     }
   }
 
