@@ -23,7 +23,7 @@ main {
   align-items: center;
 }
 
-.lectureContainer {
+.lectureContainer, .lectureContainer__noImg {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -39,11 +39,14 @@ main {
   display: flex;
   width: 100%;
   margin-bottom: $gutter;
+  align-items: flex-end;
 }
 
 .finished__image {
   background-color: $color-pink;
   width: 20%;
+  display: none;
+
 }
 .index__lectureText {
   min-width: 80%;
@@ -59,7 +62,7 @@ main {
 }
 .index__lectureTitle{
   font-family: $font-heading;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 0.5 * $gutter;
 }
 .index__lectureCategory {
@@ -75,9 +78,8 @@ main {
   margin-bottom: -10px;
 }
 
-.invisible{
-  display: none;
-}
+
+
 
 
 

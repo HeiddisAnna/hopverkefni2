@@ -1,5 +1,5 @@
 import { empty, el } from './helpers';
-import { loadSavedLectures, savedLectures,  } from './storage';
+import { loadSavedLectures, savedLectures } from './storage';
 
 export default class List {
   constructor() {
@@ -52,8 +52,6 @@ export default class List {
     this.CSSButton = document.getElementById('button__CSS');
     this.JSButton = document.getElementById('button__JavaScript');
     this.containerRow = document.querySelector('.list__row');
-
-    console.log(this.CSSButton.classList.value);
 
     //Ef ekki er búið að ýta á hina takkana látum við allt nema HTML-ið hverfa
     if(e.target.id == 'button__HTML'){
@@ -144,7 +142,7 @@ export default class List {
     const heading = el('h2', data.title);  //Ná í heitið á verkefninu
     heading.classList.add('index__lectureTitle');
 
-    console.log('data.finished: ' + data.finished); //Virkar ekki!
+    //console.log('data.finished: ' + data.finished); //VIRKAR EKKI!!! Sýna Done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     //const finished = el('h1', data.finished, data.toString()); //Bara með þetta til að penta einhvern streng
     const finished__image = el('div'); //Búum til klasa fyrir mydina
@@ -169,7 +167,7 @@ export default class List {
     } else {
       const finalItem = el('a', textElement);
       finalItem.setAttribute('id', data.category);
-      finalItem.classList.add('lectureContainer');
+      finalItem.classList.add('lectureContainer__noImg');
       finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
       this.containerRow.appendChild(finalItem);
     }

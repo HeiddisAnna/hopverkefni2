@@ -5,11 +5,21 @@
       justify-content: space-between;
     }
     
-    .lectureContainer {
+    .lectureContainer, .lectureContainer__noImg {
       width: 32.2%;
       margin-left: 0;
       margin-right: 0;
     }
+
+    .lectureContainer__noImg{
+      height: 20%;
+      padding-bottom: 20px;
+    }
+
+    .index__textElement{
+      min-height: 100%;
+    }
+
 }
 
 @media (max-width: 1200px){

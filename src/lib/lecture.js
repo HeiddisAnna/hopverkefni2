@@ -22,6 +22,8 @@ export default class List {
     }
   
     load() {
+      console.log('Fer í load í lecture');
+
       //empty(this.container);
       const qs = new URLSearchParams(window.location.search);
       console.log(qs);
@@ -39,9 +41,6 @@ export default class List {
       finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); //þarf að laga þetta
       finished.addEventListener('click', this.finished); 
       this.container.appendChild(finished);
-
-
+ 
     }
-
-
 }
