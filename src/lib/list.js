@@ -112,7 +112,6 @@ export default class List {
     }
   }
 
-
   addSaved(data){
     //Nota lúbbu hér
     const saved = loadSavedLectures(); // Hér eru allir visturð
@@ -122,34 +121,40 @@ export default class List {
     return data;
   }
 
-  show(data){
-    
-    const image = el('div'); //Búum til klasa fyrir mydina
-    image.classList.add('index__lectureImage'); //Skýrum klasann
-    const img = el('img'); //Búum til element fyrir myndina
-    img.classList.add('index__lectureImg'); //Skýrum klasann
-    //Sækjum myndina af hún er til staðar
-    if(data.thumbnail){
-      img.setAttribute('src', data.thumbnail); //setjum myndina inn í img
-    }
-    img.setAttribute('alt', data.title); //Skýringartexti við myndina
-    image.appendChild(img); //festum img á image
+  imageElement(data){
+    const image = el('div');
+    image.classList.add('index__lectureImage');
 
-    const category = el('a' , data.category);  //Af hvaða tegund er verkefnið
-    category.classList.add('index__lectureCategory');
-    category.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);  //Af hverju ekki rautt undir!??
+    if(data.thumbnail){
+      const img = el('img');
+      img.setAttribute('src', data.thumbnail);
+      img.classList.add('index__lectureImg');
+      img.setAttribute('alt', data.title); 
+      image.appendChild(img);
+    } else {
+      const img = el('div');
+      img.classList.add('index__lectureImg');
+      img.setAttribute('alt', data.title); 
+      image.appendChild(img);
+    }
     
-    const heading = el('h2', data.title);  //Ná í heitið á verkefninu
+    return image;
+  }
+
+  textElement(data){
+
+    const category = el('a' , data.category);  
+    category.classList.add('index__lectureCategory');
+    category.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);  
+
+    const heading = el('h2', data.title);  
     heading.classList.add('index__lectureTitle');
 
-    //console.log('data.finished: ' + data.finished); //VIRKAR EKKI!!! Sýna Done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     //const finished = el('h1', data.finished, data.toString()); //Bara með þetta til að penta einhvern streng
-    const finished__image = el('div'); //Búum til klasa fyrir mydina
-    finished__image.classList.add('finished__image'); //Skýrum klasann
-    //const finished__img = el('img'); //Búum til element fyrir myndina
+    const finished__image = el('div'); 
+    finished__image.classList.add('finished__image'); 
     const finished__img = el('img'); 
-    img.classList.add('finished__img'); //Skýrum klasann
+    finished__img.classList.add('finished__img'); 
     finished__image.appendChild(finished__img);
 
     const index__lectureText= el('div', category, heading);
@@ -158,31 +163,28 @@ export default class List {
     const textElement= el('div', index__lectureText, finished__image);
     textElement.classList.add('index__textElement');
 
-    if(data.thumbnail){
-      const finalItem = el('a', image, textElement);
-      finalItem.classList.add('lectureContainer');
-      finalItem.setAttribute('id', data.category);
-      finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
-      this.containerRow.appendChild(finalItem);
-    } else {
-      const finalItem = el('a', textElement);
-      finalItem.setAttribute('id', data.category);
-      finalItem.classList.add('lectureContainer__noImg');
-      finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
-      this.containerRow.appendChild(finalItem);
-    }
+    return textElement;
+  }
+
+  show(data){
+    const image = this.imageElement(data);
+    const textElement = this.textElement(data);
+
+    const finalItem = el('a', image, textElement);
+    finalItem.classList.add('lectureContainer');
+    finalItem.setAttribute('id', data.category);
+    finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
+    this.containerRow.appendChild(finalItem);
   
     return '';
   }
 
   showList(data){
-   
     //Rennur í gegnum allan listann og birtum hann
     var i;
     for(i=0; i< data.lectures.length; i++){
       this.show(data.lectures[i]);
     }
-
     return '';
   }
 

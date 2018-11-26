@@ -22,6 +22,7 @@
     height: 40vh;
     background-size: cover;
     position: relative;
+    margin-bottom: $gutter;
   }
   .header__lecture-page{
     background: url("/img/code.jpg") 50% 50% fixed;
