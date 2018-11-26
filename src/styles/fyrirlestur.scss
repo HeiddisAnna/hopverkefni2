@@ -1,0 +1,65 @@
+
+.lecture__list{
+    display: flex;
+    flex-direction: column;
+}
+
+.text, .quote, .image__container, .youtube, .code {
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+}
+
+.youtube {
+    height: 380px;
+}
+
+.quote {
+    margin: $gutter;
+}
+
+.quote__container {
+    background-color: $color-grey;
+}
+.quoteAuthor {
+    font-style: italic;
+    margin-bottom: $gutter;
+    margin-left: $gutter;
+}
+
+.imgText {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.category__heading{
+    margin-top: $gutter;
+}
+
+.list__item {
+    margin-top: $gutter;
+    margin-left: $gutter;
+    font-family: $font-main;
+}
+
+.code{
+    font-family: $font-heading;
+}
+
+.back__container {
+    text-align: center;
+    margin-top:$gutter;
+    margin-bottom: 2* $gutter;
+}
+.finished__contaner {
+    text-align: center;
+    margin-top:2*$gutter;
+    margin-bottom: 2*$gutter;
+}
+.back__link, .finished{
+    text-decoration: none;
+    color: $color-black;
+    
+    font-family: $font-heading;
+}
+
+

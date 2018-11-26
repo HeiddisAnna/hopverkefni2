@@ -57,24 +57,76 @@ export default class List {
       //Finna réttan fyrirlestur
       //Sækja alla, til að finna rétta.
 
-      const finished = el('a', 'Finishd');
-      finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); //þarf að laga þetta
+      const finished__contaner = el('div');
+      finished__contaner.classList.add('finished__contaner');
+      const finished = el('a', 'Klára fyrirlestur');
+      finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); 
       finished.addEventListener('click', this.finished); 
-      this.container.appendChild(finished);
+      finished.classList.add('finished');
+      finished__contaner.appendChild(finished);
+      this.container.appendChild(finished__contaner);
+
+      const back__container = el('div');
+      back__container.classList.add('back__container');
+      const back = el('a', 'Til baka');
+      back.setAttribute('href', '../' );
+      back.classList.add('back__link');
+      back__container.appendChild(back);
+      this.container.appendChild(back__container);
     }
 
     show(data){
       
-      if(data.type === 'text' || data.type === 'quote' || data.type === 'code'){
+      if(data.type === 'text' || data.type === 'code'){
         const newElement = el('p', data.data);
         newElement.classList.add(data.type);
         this.containerList.appendChild(newElement);
       }
 
+      if(data.type === 'list'){
+        const newElement = el('ul');
+        newElement.classList.add(data.type);
+        for(let i = 0; i<data.data.length; i++){
+          const underElement = el('li', data.data[i]);
+          underElement.classList.add('list__item');
+          newElement.appendChild(underElement);
+        }
+        this.containerList.appendChild(newElement);
+      }
+
+      
+      if(data.type === 'quote'){
+        const newElement = el('div');
+        newElement.classList.add('quote__container');
+
+        const quote = el('p', data.data);
+        quote.classList.add('quote');
+
+        const quoteAuthor = el('p', data.attribute);
+        quoteAuthor.classList.add('quoteAuthor');
+
+        newElement.appendChild(quote);
+        newElement.appendChild(quoteAuthor);
+        this.containerList.appendChild(newElement);
+      }
+      
+
+
       if(data.type === 'image'){
-        const newElement = el('img');
-        newElement.classList.add('lecture__img');
-        newElement.setAttribute('src', data.data);
+        const newElement = el('div');
+        newElement.classList.add('image__container');
+
+        const img = el('img');
+        img.classList.add('lecture__img');
+        img.setAttribute('src', data.data);
+
+        console.log(img);
+
+        const imgText = el('p', data.caption);
+        imgText.classList.add('img__text');
+
+        newElement.appendChild(img);
+        newElement.appendChild(imgText);
         this.containerList.appendChild(newElement);
       }
 

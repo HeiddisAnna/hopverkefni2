@@ -21,10 +21,14 @@
       min-height: 100%;
     }
 
+    .lecture__list{
+      width: 66.667%;
+    }
+
 }
 
 @media (max-width: 1200px){
-  .list__row{
+  .list__row, .lecture__list{
     padding-left: $gutter;
     padding-right: $gutter;
   }

@@ -7,6 +7,10 @@ main {
   font-family: $font-heading;
 }
 
+p {
+  font-family: $font-main;
+}
+
 .list{
   display: flex;
   flex-wrap: wrap;

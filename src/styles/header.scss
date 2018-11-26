@@ -12,6 +12,9 @@
     font-family: $font-main;
     font-size: 16px;
   }
+  h1, h2 {
+    font-family: $font-heading;
+  }
   
   header {
     background: url("/img/header.jpg") 50% 50% fixed;
@@ -51,4 +54,7 @@
 
   .header__text{
     font-size: 3em;
+  }
+  .underHeader__text{
+    font-size:   1em;
   }
