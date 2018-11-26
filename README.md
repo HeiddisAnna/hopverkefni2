@@ -1,5 +1,22 @@
 # Hópverkefni 2
 
+README.md skrá skal vera í rót verkefnis og innihalda:
+
+-Upplýsingar um hvernig keyra skuli verkefnið
+Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS og JavaScript er skipulagt og fleira sem á við
+Upplýsingar um alla sem unnu verkefni
+Leyfilegt er að halda eftir þessari verkefnalýsingu en hún skal þá koma á eftir ykkar lýsingu
+
+## Keyrsla á verkefninu
+Byrjum þarf á að hlaða niður verkefninu af slóð `https://github.com/HeiddisAnna/hopverkefni2`. 
+Þegar það er komið skal að opna skipanalínu í þeirri möppu þar sem verkefnið er staðsett. 
+Á skipanalínu skal keyra `npm run dev` og við það keyrist upp verkefnið. 
+
+## Uppsetning verkenis
+
+
+
+
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 
 Gefnar eru [fyrirmyndir](utlit/) í `500px` og `1500px` án grindar ásamt `1500px` með grind. Allt efni skal skalast snyrtilega á milli.

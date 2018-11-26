@@ -18,6 +18,8 @@ export default class List {
         savedLectures(slug)
         const saved = loadSavedLectures();
 
+        console.log(localStorage);
+
         return saved;
     }
     
@@ -94,7 +96,6 @@ export default class List {
         this.containerList.appendChild(newElement);
       }
 
-      
       if(data.type === 'quote'){
         const newElement = el('div');
         newElement.classList.add('quote__container');
@@ -110,8 +111,6 @@ export default class List {
         this.containerList.appendChild(newElement);
       }
       
-
-
       if(data.type === 'image'){
         const newElement = el('div');
         newElement.classList.add('image__container');
@@ -119,8 +118,6 @@ export default class List {
         const img = el('img');
         img.classList.add('lecture__img');
         img.setAttribute('src', data.data);
-
-        console.log(img);
 
         const imgText = el('p', data.caption);
         imgText.classList.add('img__text');

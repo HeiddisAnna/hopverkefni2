@@ -142,7 +142,6 @@ export default class List {
   }
 
   textElement(data){
-
     const category = el('a' , data.category);  
     category.classList.add('index__lectureCategory');
     category.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);  
