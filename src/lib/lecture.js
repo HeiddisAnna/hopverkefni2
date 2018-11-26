@@ -64,20 +64,46 @@ export default class List {
     }
 
     show(data){
-      console.log(data.data);
-      console.log(data.type == 'text');
       
-      if(data.type == 'text'){
+      if(data.type === 'text' || data.type === 'quote' || data.type === 'code'){
         const newElement = el('p', data.data);
         newElement.classList.add(data.type);
         this.containerList.appendChild(newElement);
       }
 
+      if(data.type === 'image'){
+        const newElement = el('img');
+        newElement.classList.add('lecture__img');
+        newElement.setAttribute('src', data.data);
+        this.containerList.appendChild(newElement);
+      }
+
+      if(data.type === 'heading'){
+        const newElement = el('h2', data.data);
+        newElement.classList.add('category__heading');
+        this.containerList.appendChild(newElement);
+      }
+
+      if(data.type === 'youtube'){
+        const newElement = el('iframe');
+        newElement.classList.add(data.type);
+        newElement.setAttribute('src', data.data);
+        this.containerList.appendChild(newElement);
+      }
+    }
+
+    showHeader(data){
+      this.containerHeader = document.querySelector('.header__container');
+      const underheader = el('h2', data.category);
+      underheader.classList.add('underHeader__text');
+      this.containerHeader.appendChild(underheader);
+      const headerTitle = el('h1', data.title);
+      headerTitle.classList.add('header__text');
+      this.containerHeader.appendChild(headerTitle);
     }
 
     showList(data){
-      //console.log(data.content);
-      //console.log(data.content.length);
+      this.showHeader(data);
 
       for(let i=0; i< data.content.length; i++){
         this.show(data.content[i]);
