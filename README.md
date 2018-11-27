@@ -13,19 +13,19 @@ Byrjum þarf á að hlaða niður verkefninu af slóð `https://github.com/Heidd
 Á skipanalínu skal keyra `npm run dev` og við það keyrist upp verkefnið. 
 
 ## Uppsetning verkenis
-###HTML og aðrar skrár
+### HTML og aðrar skrár
 HTML skrárnar sem eru notaðar, eru tvær, ein fyrir forríðu kölluð index.html og hin fyrir síðu fyririlesta kölluð fyrirlestu.html. 
 Báðar þessar skrár eru fremst í verkefnamöpunni ásamt README skjalinu, gögnum fyrir verkefnið
 og þeim pökkum og skráum sem notast var við til að vinna verkefnið. 
 
-###CSS 
+### CSS 
 Í verkefninu var notast við Stylelint sem gerir það kleift að skrifa útlistkóðan í scss skrám. 
 Þessar skrár eru svo þýddar með hjálp Stylelint í styles.css skrá sem stýrir útliti verkefnisins. 
 Ef farið er í möppuna  `src` má finna aðra möppu sem  heitir `styles`, þar undir má finna allar þær scss skrár
 sem stýra útliti síðunnar. 
 Þýddu skránna `styles.css` má finna í `dist` möpunni. En þetta er skráin sem myndast út frá öllum scss skránum í stylse möppunni. 
 
-###JavaScript
+### JavaScript
 `index.js` skránna má fynna undir `src` möppunni. En það er upphafs JavaScript skráin sem vísar okkur í hinar skrárnar. 
 Aðrar JavaScript skrár má finna undir `src` og þar inni í `lib`. Þettar eru skrárnar `helpers.js`, `list.js`, `lecture.js` og `storage.js`. 
 
