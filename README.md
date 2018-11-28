@@ -3,8 +3,8 @@
 README.md skrá skal vera í rót verkefnis og innihalda:
 
 -Upplýsingar um hvernig keyra skuli verkefnið
-Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS og JavaScript er skipulagt og fleira sem á við
-Upplýsingar um alla sem unnu verkefni
+-Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS og JavaScript er skipulagt og fleira sem á við
+-Upplýsingar um alla sem unnu verkefni
 Leyfilegt er að halda eftir þessari verkefnalýsingu en hún skal þá koma á eftir ykkar lýsingu
 
 ## Keyrsla á verkefninu
@@ -35,15 +35,31 @@ Sem inniheldur lista af öllum fyrirlestrum.
 * `lecture.js` inniheldur þær skipanir sem stýra virkni á síðu sem inniheldur einn fyrirlestur. 
 * `storage.js` inniheldur þann kóða sem notaður er til að vista gögn í localStorage. 
 
-##
+## Nemendur sem unnu í verkefninu
+Þetta verkefni var unnið af einum nemanda, henni Heiðdísi Önnu Lúðvíksdóttur. 
+Hún er nemandi í vefforrinun 1 og er á þriðja ári í hugbúnaðarverkfræði. 
+
+Netfangið hjá henni er `hal8@hi.is` og notandanafn á Github er `HeiddisAnna`. 
+
+## Verkefnalýsing
+Í verkefninu skal vinna með gefin gögn um fyrirlestra. 
+Setja skal upp forsíðu sam samanstendur af öllum fyrirlestrum í gögnunum. Síðan skal vera snirtilega upp sett og sýna nafn fyrirlestrarins
+og í hvaða flokki hann er. Mögulegir flokkar eru `HTML`, `CSS` og `JavaScript` og skal verka hægt að leita af þeim fyrirlestrum sem eru 
+í hverjum flokki fyrir sig. 
+
+Þegar ítt er á fyrirlestur færist notandi síðunnar yfir á aðra síðu þar sem hann getur lesið efni fyrirlestrarisn og horft á myndband 
+ef það er til. Notandi skal geta hakað í hvort hann sé búin að skoða fyrirlestur eða ekki og skal það tákn bæði byrtast á forsíðu
+og á síðu hvers fyrilesturs. 
 
 
+
+### Verkefnalýsingu sem unnið var eftir við gerð þessa verkefnis má finna hér fyrir neðan
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 
 Gefnar eru [fyrirmyndir](utlit/) í `500px` og `1500px` án grindar ásamt `1500px` með grind. Allt efni skal skalast snyrtilega á milli.
 
-## Almennt
+#### Almennt
 
 Gögn eru gefin í `lectures.json` sem sækja skal með _ajax_ virkni. Keyra verður verkefnið með `browser-sync` til að það virki.
 
@@ -62,7 +78,7 @@ Flest allt er sett upp í 12 dálka grind með `20px` gutter.
 
 Allar hreyfingar gerast á `300ms` með `ease-in-out` hröðunarfalli. Hreyfingar eru þegar svimað er yfir fyrirlestri í lista og síunar tökkum.
 
-## Forsíða
+#### Forsíða
 
 Forsíða inniheldur lista af öllum fyrirlestrum. Fram kemur hvort búið sé að klára fyrirlestur eða ekki. Nota skal `✓` til að tákna að fyrirlestri séð lokið, sjá að neðan hvernig virkni er.
 
@@ -70,7 +86,7 @@ Fyrir ofan lista skulu vera þrír takkar fyrir hvern af flokkunum: `HTML`, `CSS
 
 Þegar smellt er á fyrirlestur er farið yfir á `fyrirlestur.html?slug=<slug>` þar sem `<slug>` er _slug_ fyrir fyrirlesturinn, t.d. `fyrirlestur.html?slug=html-sagan`. Hægt er að nota `URLSearchParams` og `window.location.search` til að vita hvaða fyrirlestur átt er við á `fyrirlestur.html` síðu.
 
-## Fyrirlestur
+#### Fyrirlestur
 
 Fyrir hvern fyrirlestur skal birta haus og allt efni fyrirlesturs á eftir honum. Í haus kemur fram flokkur og titill.
 
@@ -78,13 +94,13 @@ Efni fyrirlesturs er geymt í fylki og skal birta það í sömu röð og það 
 
 Neðst er takki til að merkja fyrirlestur kláraðann og hlekkur til að fara til baka.
 
-### Kláraður fyrirlestur
+##### Kláraður fyrirlestur
 
 Ef fyrirlestur er merktur kláraður skal sýna `✓ Fyrirlestur kláraður` í `#2d2`. Annars `Klára fyrirlestur`. Þegar fyrirlestur er kláraður skal vista upplýsingar um það í `localStorage` og birta í lista og á fyrirlestra síðu.
 
 Nota skal `slug` sem auðkenni yfir kláraða fyrirlestra.
 
-## Fyrirlestragögn
+#### Fyrirlestragögn
 
 `lectures.json` inniheldur fylki af fyrirlestrum sem birta skal. Hver fyrirlestur getur haft:
 
@@ -112,13 +128,13 @@ Fyrir efni fyrirlesturs er efni alltaf með:
 
 Athugið að meira efni mun bætast við það sem gefið er í byrjun. Virkni ætti að ráða við hvaða efni sem er í hvaða formi sem er, svo lengi sem það fylgir reglum að ofan.
 
-## Hópavinna
+#### Hópavinna
 
 Verkefnið skal unnið í hóp með þremur einstaklingum. Hafið samband við kennara ef ekki er mögulegt að vinna í hóp.
 
 Notast skal við Git og GitHub. Engar zip skrár með kóða ættu að ganga á milli í hópavinnu, heldur á að „committa“ allan kóða og vinna gegnum Git.
 
-## Lýsing á verkefni
+#### Lýsing á verkefni
 
 `README.md` skrá skal vera í rót verkefnis og innihalda:
 
@@ -127,7 +143,7 @@ Notast skal við Git og GitHub. Engar zip skrár með kóða ættu að ganga á 
 * Upplýsingar um alla sem unnu verkefni
 * Leyfilegt er að halda eftir þessari verkefnalýsingu en hún skal þá koma _á eftir_ ykkar lýsingu
 
-## Tæki og tól
+#### Tæki og tól
 
 Eftirfarandi er sett upp í verkefni:
 
@@ -160,18 +176,18 @@ Setja þarf upp
 
 og bæta við í tól að ofan.
 
-## Mat
+#### Mat
 
 * 30% - `README` eftir forskrift, tæki og tól uppsett. Snyrtilegt, gilt (skv. eslint) JavaScript. Snyrtilegt, gilt (skv. stylelint) CSS/Sass, gilt og aðgengilegt HTML. Git notað
 * 30% – Yfirlitssíða með síu
 * 30% – Fyrirlestrarsíða útfærð með efni
 * 10% – Hægt að skrá að fyrirlestur sér kláraður
 
-## Sett fyrir
+#### Sett fyrir
 
 Verkefni sett fyrir á Uglu föstudaginn 9. nóvember 2018.
 
-## Skil
+#### Skil
 
 Einn aðili úr hóp skal skila fyrir hönd allra og skila skal undir „Verkefni og hlutaprófa“ á Uglu í seinasta lagi fyrir lok dags fimmtudaginn 29. nóvember 2018, seinustu dæmatímar eru þann fimmtudag.
 
@@ -181,13 +197,13 @@ Skil skulu innihalda:
 * Slóð á GitHub repo fyrir verkefni, og dæmatímakennurum skal hafa verið boðið í repo ([sjá leiðbeiningar](https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/)). Notendanöfn þeirra eru `arnar44`, `gorri4`, `mimiqkz`, `hinriksnaer`, `gunkol`, `freyrdanielsson` og `osk`
 * Slóð á verkefnið keyrandi á vefnum
 
-## Einkunn
+#### Einkunn
 
 Sett verða fyrir tíu minni verkefni þar sem átta bestu gilda 3,5% hvert, samtals 28% af lokaeinkunn.
 
 Sett verða fyrir tvö stærri verkefni þar sem hvort um sig gildir 11%, samtals 22% af lokaeinkunn.
 
-## Myndir
+#### Myndir
 
 Myndir frá:
 
@@ -199,7 +215,7 @@ Myndir frá:
 
 > Útgáfa 0.2
 
-### Útgáfusaga
+##### Útgáfusaga
 
 | Útgáfa | Lýsing                                |
 |--------|---------------------------------------|
