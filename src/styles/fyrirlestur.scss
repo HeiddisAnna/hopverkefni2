@@ -51,15 +51,37 @@
     margin-bottom: 2* $gutter;
 }
 .finished__contaner {
-    text-align: center;
+    display: flex;
+    height: 1em;
     margin-top:2*$gutter;
     margin-bottom: 2*$gutter;
+    justify-content: center;
 }
+
+.finished__done {
+    text-decoration: none;
+    color: $color-dankGreen;
+    
+    font-family: $font-heading;
+}
+
 .back__link, .finished{
     text-decoration: none;
     color: $color-black;
     
     font-family: $font-heading;
 }
+
+.seeImage {
+    visibility: visible;
+    width: 20px;
+}
+.dontSeeImage {
+    visibility: hidden;
+    width: 20px;
+}
+
+
+
 
 

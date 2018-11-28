@@ -8,8 +8,7 @@ export default class List {
       this.url='../lectures.json';
     }
 
-    //Er ekki að virka!
-    //Hoppa á milli vistaðs og ekki vistaðs
+
     finished(e){   
       const qs = new URLSearchParams(window.location.search);
       const slug = qs.get('slug');
@@ -38,6 +37,53 @@ export default class List {
         return found;
       });
     }
+
+    showFinished(slug){
+      
+      const finished__img = el('img')
+      finished__img.setAttribute('src', './img/check.jpg');
+      //finished__img.classList.add('finished__img__lecture');
+
+      const finished = el('a', 'Klára fyrirlestur');
+      finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); 
+      finished.addEventListener('click', this.finished); 
+      
+
+      const finished__contaner = el('div', finished__img, finished);
+      finished__contaner.classList.add('finished__contaner');
+  
+      this.container.appendChild(finished__contaner);
+
+      
+      console.log(slug);
+      const ls = localStorage.lectures.substring(1,(localStorage.lectures.length)-1)
+      const lsList = ls.split(',');
+      console.log(lsList);
+      for(let i=0; i< lsList.length; i++){
+        if(lsList[i] === '"' + slug + '"'){
+          console.log('Er vistaður');
+          finished__img.classList.add('seeImage');
+          finished.classList.add('finished__done');
+          break;
+        } 
+      }
+      if(finished__img.classList.value !== 'seeImage'){
+        console.log('Er ekki vistaður');
+        finished__img.classList.add('dontSeeImage');
+        finished.classList.add('finished');
+      }
+
+    }
+
+    showGoBack(){
+      const back__container = el('div');
+      back__container.classList.add('back__container');
+      const back = el('a', 'Til baka');
+      back.setAttribute('href', '../' );
+      back.classList.add('back__link');
+      back__container.appendChild(back);
+      this.container.appendChild(back__container);
+    }
   
     load() {
       const qs = new URLSearchParams(window.location.search);
@@ -51,29 +97,9 @@ export default class List {
         this.setError(error.message);
       }); 
 
-      //Villumeðhöndlun - ef síðan fannst ekki
+      this.showFinished(slug);
 
-
-      //Hér myndum við vilja sækja fyrirlsetra
-      //Finna réttan fyrirlestur
-      //Sækja alla, til að finna rétta.
-
-      const finished__contaner = el('div');
-      finished__contaner.classList.add('finished__contaner');
-      const finished = el('a', 'Klára fyrirlestur');
-      //finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); 
-      finished.addEventListener('click', this.finished); 
-      finished.classList.add('finished');
-      finished__contaner.appendChild(finished);
-      this.container.appendChild(finished__contaner);
-
-      const back__container = el('div');
-      back__container.classList.add('back__container');
-      const back = el('a', 'Til baka');
-      back.setAttribute('href', '../' );
-      back.classList.add('back__link');
-      back__container.appendChild(back);
-      this.container.appendChild(back__container);
+      this.showGoBack();
     }
 
     show(data){
