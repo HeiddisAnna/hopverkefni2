@@ -1,30 +1,28 @@
 # Hópverkefni 2
 
 ## Keyrsla á verkefninu
-Byrjum þarf á að hlaða niður verkefninu af slóð `https://github.com/HeiddisAnna/hopverkefni2`. 
+Fyrst þarf á að hlaða niður verkefninu af slóð `https://github.com/HeiddisAnna/hopverkefni2`. 
 Þegar það er komið skal að opna skipanalínu í þeirri möppu þar sem verkefnið er staðsett. 
-Á skipanalínu skal keyra `npm run dev` og við það keyrist upp verkefnið. 
+Á skipanalínu skal keyra `npm run dev`. Ef notandi er nettengdur opnast verkefnið í vafranum, en ef ekki þarf notandinn að nettengja tölvuna.
 
 ## Uppsetning verkenis
 ### HTML og aðrar skrár
-HTML skrárnar sem eru notaðar, eru tvær, ein fyrir forríðu kölluð index.html og hin fyrir síðu fyririlesta kölluð fyrirlestu.html. 
-Báðar þessar skrár eru fremst í verkefnamöpunni ásamt README skjalinu, gögnum fyrir verkefnið
-og þeim pökkum og skráum sem notast var við til að vinna verkefnið. 
+HTML skrárnar sem eru notaðar, eru tvær, ein fyrir forsíðu kölluð index.html og hin fyrir síðu fyrirlestra og er heitir fyrirlestur.html. 
+Báðar þessar skrár eru fremst í verkefna möppunni ásamt README skjalinu, gögnum fyrir verkefnið og þeim pökkum og skráum sem notast var við til að vinna verkefnið. 
 
 ### CSS 
-Í verkefninu var notast við Stylelint sem gerir það kleift að skrifa útlistkóðan í scss skrám. 
+Í verkefninu var notast við Stylelint sem gerir það kleift að skrifa útlistkóðann í scss skrám. 
 Þessar skrár eru svo þýddar með hjálp Stylelint í styles.css skrá sem stýrir útliti verkefnisins. 
-Ef farið er í möppuna  `src` má finna aðra möppu sem  heitir `styles`, þar undir má finna allar þær scss skrár
-sem stýra útliti síðunnar. 
+Ef farið er í möppuna  `src` má finna aðra möppu sem  heitir `styles`, þar undir má finna allar þær scss skrár sem stýra útliti síðunnar. 
 Þýddu skránna `styles.css` má finna í `dist` möpunni. En þetta er skráin sem myndast út frá öllum scss skránum í stylse möppunni. 
 
 ### JavaScript
-`index.js` skránna má fynna undir `src` möppunni. En það er upphafs JavaScript skráin sem vísar okkur í hinar skrárnar. 
+`index.js` skránna má finna undir `src` möppunni. En það er upphafs JavaScript skráin sem vísar okkur í hinar skrárnar. 
 Aðrar JavaScript skrár má finna undir `src` og þar inni í `lib`. Þettar eru skrárnar `helpers.js`, `list.js`, `lecture.js` og `storage.js`. 
 
 * `helpers.js` inniheldur hjálparföll sem oft eru notuð í verkefninu. 
-* `list.js` inniheldur þær skipanir sem stýra virkni á forsíður verkefninsins. 
-Sem inniheldur lista af öllum fyrirlestrum. 
+* `list.js` inniheldur þær skipanir sem stýra virkni á forsíður verkefnisins. 
+En forsíðan inniheldur lista af öllum fyrirlestrum. 
 * `lecture.js` inniheldur þær skipanir sem stýra virkni á síðu sem inniheldur einn fyrirlestur. 
 * `storage.js` inniheldur þann kóða sem notaður er til að vista gögn í localStorage. 
 
@@ -35,18 +33,20 @@ Hún er nemandi í vefforrinun 1 og er á þriðja ári í hugbúnaðarverkfræ�
 Netfangið hjá henni er `hal8@hi.is` og notandanafn á Github er `HeiddisAnna`. 
 
 ## Verkefnalýsing
-Í verkefninu skal vinna með gefin gögn um fyrirlestra. 
-Setja skal upp forsíðu sam samanstendur af öllum fyrirlestrum í gögnunum. Síðan skal vera snirtilega upp sett og sýna nafn fyrirlestrarins
-og í hvaða flokki hann er. Mögulegir flokkar eru `HTML`, `CSS` og `JavaScript` og skal verka hægt að leita af þeim fyrirlestrum sem eru 
+Í verkefninu skal vinna með og lesa inn gefin gögn um fyrirlestra. 
+
+Setja skal upp forsíðu sem samanstendur af öllum fyrirlestrum í gögnunum. Síðan skal vera snyrtilega upp sett og sýna nafn fyrirlestursins
+og í hvaða flokki hann er. Mögulegir flokkar eru `HTML`, `CSS` og `JavaScript` og skal vera hægt að leita af þeim fyrirlestrum sem eru 
 í hverjum flokki fyrir sig. 
 
-Þegar ítt er á fyrirlestur færist notandi síðunnar yfir á aðra síðu þar sem hann getur lesið efni fyrirlestrarisn og horft á myndband 
-ef það er til. Notandi skal geta hakað í hvort hann sé búin að skoða fyrirlestur eða ekki og skal það tákn bæði byrtast á forsíðu
-og á síðu hvers fyrilesturs. 
+Þegar ýtt er á fyrirlestur færist notandi síðunnar yfir á aðra síðu þar sem hann getur lesið efni fyrirlestrarins og horft á myndband 
+ef það er til. Notandi skal geta hakað í hvort hann sé búin að skoða fyrirlestur eða ekki og skal það tákn bæði birtast á forsíðu
+og á síðu hvers fyrirlesturs. 
+
+Sú verkefnalýsing sem notast var við í vinnu þessa verkefni má sjá hér að neðan, en það er sú verkefnalýsing sem `Ólafur Sverrir Kjartansson` gat út.  
 
 
-
-### Verkefnalýsingu sem unnið var eftir við gerð þessa verkefnis má finna hér fyrir neðan
+### Verkefnalýsing frá kennara
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 

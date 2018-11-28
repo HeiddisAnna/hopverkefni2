@@ -39,10 +39,7 @@ export default class List {
     }
 
     showFinished(slug){
-      
-      const finished__img = el('img')
-      finished__img.setAttribute('src', './img/check.jpg');
-      //finished__img.classList.add('finished__img__lecture');
+      const finished__img = el('p',  '✓');
 
       const finished = el('a', 'Klára fyrirlestur');
       finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); 
@@ -104,16 +101,13 @@ export default class List {
 
     show(data){
       if(data.type === 'text' || data.type === 'code'){
-        const newElement = el('p', data.data);
-        newElement.classList.add(data.type);
-        //console.log(newElement);
-        //const listP = data.data.split('.');
-        //console.log(listP[0]);
-        //console.log(listP[1]);
-        //console.log(listP.length);
-        //Eða á að gera line-break ?? Sem virkar ekki heldur
-        this.containerList.appendChild(newElement);
-      }
+        const listP = data.data.split('\n');
+        for(let i =0; i<listP.length; i++){
+          const newElement = el('p', listP[i]);
+          newElement.classList.add(data.type);
+          this.containerList.appendChild(newElement);
+        }
+      }      
 
       if(data.type === 'list'){
         const newElement = el('ul');

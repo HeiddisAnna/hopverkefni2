@@ -12,16 +12,21 @@
     align-self: flex-end;
     margin-bottom: $gutter;
   }
+
+  .lectureContainer{
+    align-self: stretch;
+  }
   .lectureContainer__noImg{
     height: 45vh;
     padding-bottom: 20px;
   }
 
   .index__textElement{
-    min-height: 100%;
+    min-height: 24%;
     margin: 0;
   }
 
+  
   .lecture__list{
     width: 66.667%;    
   }
@@ -29,13 +34,12 @@
   .index__lectureImage {
     display: flex;
     height: 100%;
-    background-color: $color-grey;
   }
 
 }
 
 @media (max-width: 1200px){
-  .list__row, .lecture__list{
+  .list__row, .lecture__mane{
     padding-left: $gutter;
     padding-right: $gutter;
   }

@@ -1,20 +1,23 @@
+.lecture__mane{
+    max-width: 1220px;
+    margin: 0 auto;
+  }
 
 .lecture__list{
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
 }
 
-.text, .quote, .image__container, .youtube, .code {
-    margin-top: $gutter;
+.text, .quote, .image__container, .youtube, .category__heading, .list__item {
     margin-bottom: $gutter;
 }
 
 .youtube {
     height: 380px;
+    width: 100%;
 }
 
 .quote {
-    margin: $gutter;
+    padding: $gutter;
 }
 
 .quote__container {
@@ -22,8 +25,8 @@
 }
 .quoteAuthor {
     font-style: italic;
-    margin-bottom: $gutter;
-    margin-left: $gutter;
+    padding-bottom: $gutter;
+    padding-left: $gutter;
 }
 
 .imgText {
@@ -36,13 +39,13 @@
 }
 
 .list__item {
-    margin-top: $gutter;
     margin-left: $gutter;
     font-family: $font-main;
 }
 
 .code{
     font-family: $font-heading;
+    min-height: 1em;
 }
 
 .back__container {
@@ -75,11 +78,15 @@
 .seeImage {
     visibility: visible;
     width: 20px;
+    color: $color-dankGreen;
+    font-weight: bold;
 }
 .dontSeeImage {
     visibility: hidden;
     width: 20px;
 }
+
+
 
 
 

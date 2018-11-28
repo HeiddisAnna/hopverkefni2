@@ -59,6 +59,7 @@ export default class List {
         //Ef ekki er búið að íta á annan takka, látum við allt annað en css hverfa
         if((this.CSSButton.classList.value === 'button') && (this.JSButton.classList.value === 'button')){
           if(this.containerRow.childNodes[i].id !== 'html'){
+            console.log(this.containerRow.childNodes[i]);
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
         } else { //Annars látum við css birtast
@@ -151,10 +152,14 @@ export default class List {
 
     //const finished = el('h1', data.finished, data.toString()); //Bara með þetta til að penta einhvern streng
     const finished__image = el('div'); 
-    finished__image.classList.add('finished__image'); 
-    const finished__img = el('img'); 
+    //finished__image.classList.add('finished__image'); 
+    //const finished__img = el('img'); 
+    //finished__img.classList.add('finished__img'); 
+    //finished__img.setAttribute('src', './img/check.jpg');
+    
+
+    const finished__img = el('p',  '✓');
     finished__img.classList.add('finished__img'); 
-    finished__img.setAttribute('src', './img/check.jpg');
     finished__image.appendChild(finished__img);
 
     const index__lectureText= el('div', category, heading);
