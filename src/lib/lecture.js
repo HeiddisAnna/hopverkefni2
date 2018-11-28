@@ -10,17 +10,16 @@ export default class List {
 
     //Er ekki að virka!
     //Hoppa á milli vistaðs og ekki vistaðs
-    finished(e){
-        const qs = new URLSearchParams(window.location.search);
-        console.log(qs);
-        const slug = ps.get('slug');
+    finished(e){   
+      const qs = new URLSearchParams(window.location.search);
+      const slug = qs.get('slug');
 
-        savedLectures(slug)
-        const saved = loadSavedLectures();
+      savedLectures(slug)
+      const saved = loadSavedLectures();
 
-        console.log(localStorage);
+      console.log(localStorage);
 
-        return saved;
+      return saved;
     }
     
     loadLectures(slug) {
@@ -45,7 +44,7 @@ export default class List {
       const slug = qs.get('slug');
 
       this.loadLectures(slug)
-      .then(data => this.showList(data)) //Sendum lista af öllum gögnunum inn í fallið
+      .then(data => this.showList(data)) 
       
       .catch((error) => {
         console.error(error);
@@ -62,7 +61,7 @@ export default class List {
       const finished__contaner = el('div');
       finished__contaner.classList.add('finished__contaner');
       const finished = el('a', 'Klára fyrirlestur');
-      finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); 
+      //finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); 
       finished.addEventListener('click', this.finished); 
       finished.classList.add('finished');
       finished__contaner.appendChild(finished);
@@ -78,10 +77,15 @@ export default class List {
     }
 
     show(data){
-      
       if(data.type === 'text' || data.type === 'code'){
         const newElement = el('p', data.data);
         newElement.classList.add(data.type);
+        //console.log(newElement);
+        //const listP = data.data.split('.');
+        //console.log(listP[0]);
+        //console.log(listP[1]);
+        //console.log(listP.length);
+        //Eða á að gera line-break ?? Sem virkar ekki heldur
         this.containerList.appendChild(newElement);
       }
 

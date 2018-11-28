@@ -35,7 +35,6 @@ p {
   margin-right: 2 * $gutter;
   align-items: center;
   text-decoration: none;
-  align-content: stretch;
 }
 
 
@@ -51,11 +50,15 @@ p {
 }
 
 .finished__image {
-  background-color: $color-pink;
+  background-color: $color-grey;
   width: 20%;
-  display: none;
-
+  align-self: stretch;
 }
+.finished__image__visable {
+  width: 20%;
+}
+
+
 .index__lectureText {
   min-width: 80%;
   display: flex;

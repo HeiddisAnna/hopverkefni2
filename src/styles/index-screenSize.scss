@@ -27,7 +27,8 @@
   }
 
   .index__lectureImage {
-    //height: 235px;
+    display: flex;
+    height: 100%;
     background-color: $color-grey;
   }
 

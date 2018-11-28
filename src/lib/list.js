@@ -154,6 +154,7 @@ export default class List {
     finished__image.classList.add('finished__image'); 
     const finished__img = el('img'); 
     finished__img.classList.add('finished__img'); 
+    finished__img.setAttribute('src', './img/check.jpg');
     finished__image.appendChild(finished__img);
 
     const index__lectureText= el('div', category, heading);
@@ -165,6 +166,17 @@ export default class List {
     return textElement;
   }
 
+  showDone(textElement, data){
+    const ls = localStorage.lectures.substring(1,(localStorage.lectures.length)-1)
+    const lsList = ls.split(',');
+    for(let i=0; i< lsList.length; i++){
+      if(lsList[i] === '"' + data.slug + '"'){
+        textElement.childNodes[1].classList.toggle('invisible');
+      }
+    }
+    return '';
+  }
+
   show(data){
     const image = this.imageElement(data);
     const textElement = this.textElement(data);
@@ -174,7 +186,11 @@ export default class List {
     finalItem.setAttribute('id', data.category);
     finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
     this.containerRow.appendChild(finalItem);
-  
+
+    textElement.childNodes[1].classList.toggle('invisible');
+
+    this.showDone(textElement, data);
+
     return '';
   }
 

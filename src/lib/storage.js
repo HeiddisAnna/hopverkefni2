@@ -18,8 +18,7 @@ export function savedLectures(slug) { //af hverju kemur ekki rautt undir!!?
         saved.push(slug);
     }
 
-    localStorage.setItem(LOCALSTORAGE_KEY, JASON.stringify(saved));
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(saved));
 }
 
 
-//Komið
