@@ -1,6 +1,4 @@
-
 @media (min-width: 800px){
-
   .list__row {
       justify-content: space-between;
     }
@@ -45,10 +43,11 @@
   }
 }
 
-
 @media(max-width: 799px){
   .list__row {
       justify-content: center;
+      margin-left: 0.5 * $gutter;
+      margin-right: 0.5 *$gutter;
     }
     
     .lectureContainer {

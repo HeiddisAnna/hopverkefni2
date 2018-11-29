@@ -8,7 +8,10 @@ export default class List {
       this.url='../lectures.json';
     }
 
-
+    /**
+     * Vistar í local sorage og skilar þeim sem eru vistuð
+     * @param {*} e 
+     */
     finished(e){   
       const qs = new URLSearchParams(window.location.search);
       const slug = qs.get('slug');
@@ -21,6 +24,10 @@ export default class List {
       return saved;
     }
     
+    /**
+     * Fall sem finnur fyrirlesturinn sem hefur ákveðið slug og skilar slóð á hann
+     * @param {*} slug 
+     */
     loadLectures(slug) {
       return fetch(this.url)
       .then((res) => {
@@ -38,24 +45,23 @@ export default class List {
       });
     }
 
+    /**
+     * Byrtir gögnin sem eiga að vera á síðu með þetta url
+     * @param {url} slug 
+     */
     showFinished(slug){
       const finished__img = el('p',  '✓');
-
       const finished = el('a', 'Klára fyrirlestur');
       finished.setAttribute('href', '/fyrirlestur.html?slug=' +slug); 
       finished.addEventListener('click', this.finished); 
-      
 
       const finished__contaner = el('div', finished__img, finished);
       finished__contaner.classList.add('finished__contaner');
   
       this.container.appendChild(finished__contaner);
 
-      
-      console.log(slug);
       const ls = localStorage.lectures.substring(1,(localStorage.lectures.length)-1)
       const lsList = ls.split(',');
-      console.log(lsList);
       for(let i=0; i< lsList.length; i++){
         if(lsList[i] === '"' + slug + '"'){
           console.log('Er vistaður');
@@ -69,9 +75,11 @@ export default class List {
         finished__img.classList.add('dontSeeImage');
         finished.classList.add('finished');
       }
-
     }
 
+    /**
+     * Býr til takk til að fara til baka og setur virkni á hann
+     */
     showGoBack(){
       const back__container = el('div');
       back__container.classList.add('back__container');
@@ -81,7 +89,10 @@ export default class List {
       back__container.appendChild(back);
       this.container.appendChild(back__container);
     }
-  
+    
+    /**
+     * Hleður niður gögnunum á síðuna
+     */
     load() {
       const qs = new URLSearchParams(window.location.search);
       const slug = qs.get('slug');
@@ -95,10 +106,13 @@ export default class List {
       }); 
 
       this.showFinished(slug);
-
       this.showGoBack();
     }
 
+    /**
+     * Býr til rétt element miðað við af hvaða týpu gögnin sem á að byrta eru. 
+     * Setur gögnin úr data inn í hlutin og byrtir þau. 
+     */
     show(data){
       if(data.type === 'text' || data.type === 'code'){
         const listP = data.data.split('\n');
@@ -165,6 +179,9 @@ export default class List {
       }
     }
 
+    /**
+     * Sýnir haus síðunnar
+     */
     showHeader(data){
       this.containerHeader = document.querySelector('.header__container');
       const underheader = el('h2', data.category);
@@ -175,12 +192,15 @@ export default class List {
       this.containerHeader.appendChild(headerTitle);
     }
 
+    /**
+     * Tekur inn lista af gögnum. Rennir í gegnum hann og lætur byrta hvert 
+     * item af listanum. 
+     */
     showList(data){
       this.showHeader(data);
 
       for(let i=0; i< data.content.length; i++){
         this.show(data.content[i]);
       }
-    
     }
 }

@@ -1,5 +1,8 @@
 const LOCALSTORAGE_KEY = 'lectures';
 
+/**
+ * Skilar þeim hlutum sem eru vistaðir í Local Storage
+ */
 export function loadSavedLectures() {
     const savedJsonLectures = localStorage.getItem(LOCALSTORAGE_KEY);
     const savedLectures = JSON.parse(savedJsonLectures) || [];
@@ -7,13 +10,17 @@ export function loadSavedLectures() {
     return savedLectures;
 }
 
-export function savedLectures(slug) { //af hverju kemur ekki rautt undir!!?
-    const saved = loadSavedLectures();
+/**
+ * Vistar eða hættir að vista hluti í Locale Storage
+ */
+export function savedLectures(slug) { 
+    const saved = loadSavedLectures(); 
+    
+    //Ef hlutur er nú þegar vistaður hefur index gildið -1
+    const index = saved.indexOf(slug); 
 
-    const index = saved.indexOf(slug); //Ef þetta er ekki saved þá er þetta -1
-
-    if(index >= 0){ //Þetta er til
-        saved.splice(index, 1); //byrja frá þeim index þar sem index er, og tökum 1 lengar. Af því ég skrifaði 1
+    if(index >= 0){ 
+        saved.splice(index, 1); 
     } else {
         saved.push(slug);
     }

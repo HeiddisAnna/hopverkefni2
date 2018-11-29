@@ -6,7 +6,6 @@ export default class List {
     this.container = document.querySelector('.list');
     this.containerRow = document.querySelector('.list__row');
     this.url='../lectures.json';
-    //this.buttons = document.querySelector('.button');
 
     //Þegar ítt er á takka þarf að sína rétta fyrilestra
     this.HTMLButton=document.getElementById('button__HTML');
@@ -17,15 +16,12 @@ export default class List {
     this.JSButton.addEventListener('click', this.sortJSFunction);
   }
   
-  
-  showHTMLData(){
-    
-    return '';
-  }
-  
+  /**
+   * Hleður niðu gögnunum inn á síðuna
+   */
   load() {
     this.loadLectures()
-    .then(data => this.showList(data)) //Sendum lista af öllum gögnunum inn í fallið
+    .then(data => this.showList(data)) 
     
     .catch((error) => {
       console.error(error);
@@ -33,6 +29,9 @@ export default class List {
     });  
   }
   
+  /**
+   * Fall sem skylar gögnunum
+   */
   loadLectures() {
     return fetch(this.url)
     .then((res) => {
@@ -43,10 +42,19 @@ export default class List {
     });
   }
   
+  /**
+   * Byrtir villuskilaboð
+   * @param {String} errorMessage 
+   */
   setError(errorMessage){
     displayError(errorMessage); 
   }
   
+  /**
+   * Fall sem byrtir þá fyrirlestra sem eru í flokki HTML
+   * Og felur hina ef ekki er búið að byðja sérstaklega um að byrta þá
+   * @param {click on button} e 
+   */
   sortHTMLFunction(e) {
     e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
     this.CSSButton = document.getElementById('button__CSS');
@@ -56,13 +64,13 @@ export default class List {
     //Ef ekki er búið að ýta á hina takkana látum við allt nema HTML-ið hverfa
     if(e.target.id == 'button__HTML'){
       for(let i= 1; i<=this.containerRow.children.length; i++){
-        //Ef ekki er búið að íta á annan takka, látum við allt annað en css hverfa
+        //Ef ekki er búið að íta á annan takka, látum við allt annað en HTML hverfa
         if((this.CSSButton.classList.value === 'button') && (this.JSButton.classList.value === 'button')){
           if(this.containerRow.childNodes[i].id !== 'html'){
             console.log(this.containerRow.childNodes[i]);
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
-        } else { //Annars látum við css birtast
+        } else { //Annars látum við HTML birtast
           if(this.containerRow.childNodes[i].id === 'html'){
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
@@ -70,6 +78,11 @@ export default class List {
       }
     }
   }
+  /**
+   * Fall sem byrtir þá fyrirlestra sem eru í flokki CSS
+   * Og felur hina ef ekki er búið að byðja sérstaklega um að byrta þá
+   * @param {click on button} e 
+   */
   sortCSSFunction(e) {
     e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
     this.HTMLButton = document.getElementById('button__HTML');
@@ -91,6 +104,11 @@ export default class List {
       }
     }
   }
+  /**
+   * Fall sem byrtir þá fyrirlestra sem eru í flokki JavaScript 
+   * Og felur hina ef ekki er búið að byðja sérstaklega um að byrta þá
+   * @param {click on button} e 
+   */
   sortJSFunction(e) {
     e.target.classList.toggle('sort__button'); //Skiptum um klasanafn þegar takki er valinn
     this.HTMLButton = document.getElementById('button__HTML');
@@ -99,12 +117,12 @@ export default class List {
 
     if(e.target.id == 'button__JavaScript'){
       for(let i= 1; i<=this.containerRow.children.length; i++){
-        //Ef ekki er búið að íta á annan takka, látum við allt annað en css hverfa
+        //Ef ekki er búið að íta á annan takka, látum við allt annað en JavaScript hverfa
         if((this.HTMLButton.classList.value === 'button') && (this.CSSButton.classList.value === 'button')){
           if(this.containerRow.childNodes[i].id !== 'javascript'){
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
-        } else { //Annars látum við css birtast
+        } else { //Annars látum við JavaScript birtast
           if(this.containerRow.childNodes[i].id === 'javascript'){
             this.containerRow.childNodes[i].classList.toggle('invisible');
           } 
@@ -113,8 +131,10 @@ export default class List {
     }
   }
 
+  /**
+   * Skilar þeim upplýsingum sem eru vistuð í Local Storage á þessari síðu
+   */
   addSaved(data){
-    //Nota lúbbu hér
     const saved = loadSavedLectures(); // Hér eru allir visturð
 
     data.finished = saved.indexOf(data.slug) >= 0;
@@ -122,6 +142,10 @@ export default class List {
     return data;
   }
 
+  /**
+   * Býr til mynda hlut ef mynd er til staðar. Annar tóman hlut
+   * Skilar svo hlutnum
+   */
   imageElement(data){
     const image = el('div');
     image.classList.add('index__lectureImage');
@@ -142,6 +166,10 @@ export default class List {
     return image;
   }
 
+  /**
+   * Být til textaboxið sem heldur utan um fyrirsögn og flokk
+   * hvers fyrilesturs. Skilar textaboxinu. 
+   */
   textElement(data){
     const category = el('a' , data.category);  
     category.classList.add('index__lectureCategory');
@@ -150,14 +178,7 @@ export default class List {
     const heading = el('h2', data.title);  
     heading.classList.add('index__lectureTitle');
 
-    //const finished = el('h1', data.finished, data.toString()); //Bara með þetta til að penta einhvern streng
     const finished__image = el('div'); 
-    //finished__image.classList.add('finished__image'); 
-    //const finished__img = el('img'); 
-    //finished__img.classList.add('finished__img'); 
-    //finished__img.setAttribute('src', './img/check.jpg');
-    
-
     const finished__img = el('p',  '✓');
     finished__img.classList.add('finished__img'); 
     finished__image.appendChild(finished__img);
@@ -171,6 +192,10 @@ export default class List {
     return textElement;
   }
 
+  /**
+   * Sýnir eða tekur af done merkið ✓ eftir því hvort hlutur sé vistaður í 
+   * Local Storage eða ekki. 
+   */
   showDone(textElement, data){
     const ls = localStorage.lectures.substring(1,(localStorage.lectures.length)-1)
     const lsList = ls.split(',');
@@ -182,6 +207,9 @@ export default class List {
     return '';
   }
 
+  /**
+   * Byrtir gögnin á síðunni
+   */
   show(data){
     const image = this.imageElement(data);
     const textElement = this.textElement(data);
@@ -199,17 +227,14 @@ export default class List {
     return '';
   }
 
+  /**
+   * Rennur í genum lista af öllum gögnunum sem á að byrta, og lætur byrta hvert og eitt
+   */
   showList(data){
-    //Rennur í gegnum allan listann og birtum hann
     var i;
     for(i=0; i< data.lectures.length; i++){
       this.show(data.lectures[i]);
     }
     return '';
   }
-
-  //Nota youtube: Notar iframe með sorce fameborder og allow fullsclrean true 
-
-
-
 }

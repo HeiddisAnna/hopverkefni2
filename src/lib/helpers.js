@@ -1,6 +1,5 @@
 /**
  * Hreinsa börn úr elementi
- *
  * @param {object} element Element sem á að hreinsa börn úr
  */
 export function empty(element) {
@@ -10,8 +9,7 @@ export function empty(element) {
 }
 
 /**
- * Búa til element og aukalega setja börn ef send með
- *
+ * Búa til nýtt element og festir börnin á það. 
  * @param {string} name Nafn á element
  * @param  {...any} children Börn fyrir element
  */

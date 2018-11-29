@@ -7,13 +7,23 @@ Fyrst þarf á að hlaða niður verkefninu af slóð `https://github.com/Heiddi
 
 ## Uppsetning verkenis
 ### HTML og aðrar skrár
-HTML skrárnar sem eru notaðar, eru tvær, ein fyrir forsíðu kölluð index.html og hin fyrir síðu fyrirlestra og er heitir fyrirlestur.html. 
+HTML skrárnar sem eru notaðar, eru tvær, ein fyrir forsíðu kölluð index.html og hin fyrir síðu fyrirlestra og heitir fyrirlestur.html. 
 Báðar þessar skrár eru fremst í verkefna möppunni ásamt README skjalinu, gögnum fyrir verkefnið og þeim pökkum og skráum sem notast var við til að vinna verkefnið. 
 
 ### CSS 
 Í verkefninu var notast við Stylelint sem gerir það kleift að skrifa útlistkóðann í scss skrám. 
 Þessar skrár eru svo þýddar með hjálp Stylelint í styles.css skrá sem stýrir útliti verkefnisins. 
-Ef farið er í möppuna  `src` má finna aðra möppu sem  heitir `styles`, þar undir má finna allar þær scss skrár sem stýra útliti síðunnar. 
+Ef farið er í möppuna  `src` má finna aðra möppu sem  heitir `styles`, þar undir má finna allar þær scss skrár sem stýra útliti síðunnar, þær eru eftirfarandi: 
+
+* `button.scss` Stýrir útlit takka á forsíðu
+* `header.scss` Stýrir útliti hausa á síðunum 
+* `index.scss` Stýrir útliti á fosríðunni
+* `fyrilestur.scss` Stýrir útliti fyrirlestra síðunnar
+* `config.scss` Skilgreinir áveðna eiginleika sem nýttir eru í öðrum scss skjölum
+* `screenSize.scss` Þær útlitsbreytingar sem gerðar voru fyrir stærri skjá
+* `styles.scss` Heldur utan um grunnstyllingar og tekur inn allt það scss sem skrifað var í hinum skránum. 
+
+
 Þýddu skránna `styles.css` má finna í `dist` möpunni. En þetta er skráin sem myndast út frá öllum scss skránum í stylse möppunni. 
 
 ### JavaScript
@@ -21,29 +31,24 @@ Ef farið er í möppuna  `src` má finna aðra möppu sem  heitir `styles`, þa
 Aðrar JavaScript skrár má finna undir `src` og þar inni í `lib`. Þettar eru skrárnar `helpers.js`, `list.js`, `lecture.js` og `storage.js`. 
 
 * `helpers.js` inniheldur hjálparföll sem oft eru notuð í verkefninu. 
-* `list.js` inniheldur þær skipanir sem stýra virkni á forsíður verkefnisins. 
-En forsíðan inniheldur lista af öllum fyrirlestrum. 
+* `list.js` inniheldur þær skipanir sem stýra virkni á forsíður verkefnisins. En forsíðan inniheldur lista af öllum fyrirlestrum. 
 * `lecture.js` inniheldur þær skipanir sem stýra virkni á síðu sem inniheldur einn fyrirlestur. 
 * `storage.js` inniheldur þann kóða sem notaður er til að vista gögn í localStorage. 
 
 ## Nemendur sem unnu í verkefninu
 Þetta verkefni var unnið af einum nemanda, henni Heiðdísi Önnu Lúðvíksdóttur. 
-Hún er nemandi í vefforrinun 1 og er á þriðja ári í hugbúnaðarverkfræði. 
+Hún er nemandi í vefforrinun 1 og er á þriðja ári í hugbúnaðarverkfræði í Háskóla Íslands. 
 
 Netfangið hjá henni er `hal8@hi.is` og notandanafn á Github er `HeiddisAnna`. 
 
 ## Verkefnalýsing
-Í verkefninu skal vinna með og lesa inn gefin gögn um fyrirlestra. 
+Í verkefninu skal vinna með, og lesa inn, gefin gögn um fyrirlestra. 
 
-Setja skal upp forsíðu sem samanstendur af öllum fyrirlestrum í gögnunum. Síðan skal vera snyrtilega upp sett og sýna nafn fyrirlestursins
-og í hvaða flokki hann er. Mögulegir flokkar eru `HTML`, `CSS` og `JavaScript` og skal vera hægt að leita af þeim fyrirlestrum sem eru 
-í hverjum flokki fyrir sig. 
+Setja skal upp forsíðu sem samanstendur af öllum fyrirlestrum í gögnunum. Síðan skal vera snyrtilega upp sett og sýna nafn fyrirlestursins og í hvaða flokki hann er. Mögulegir flokkar eru `HTML`, `CSS` og `JavaScript` og skal vera hægt að leita af þeim fyrirlestrum sem eru í hverjum flokki fyrir sig. 
 
-Þegar ýtt er á fyrirlestur færist notandi síðunnar yfir á aðra síðu þar sem hann getur lesið efni fyrirlestrarins og horft á myndband 
-ef það er til. Notandi skal geta hakað í hvort hann sé búin að skoða fyrirlestur eða ekki og skal það tákn bæði birtast á forsíðu
-og á síðu hvers fyrirlesturs. 
+Þegar ýtt er á fyrirlestur færist notandi síðunnar yfir á aðra síðu þar sem hann getur lesið efni fyrirlestrarins og horft á myndband ef það er til. Notandi skal geta hakað í hvort hann sé búin að skoða fyrirlestur eða ekki og skal það tákn um það birtast bæði á forsíðu og á síðu hvers fyrirlesturs. 
 
-Sú verkefnalýsing sem notast var við í vinnu þessa verkefni má sjá hér að neðan, en það er sú verkefnalýsing sem `Ólafur Sverrir Kjartansson` gat út.  
+Sú verkefnalýsing sem notast var við í vinnu þessa verkefni má sjá hér að neðan, en það er sú verkefnalýsing sem `Ólafur Sverrir Kjartansson` gaf út.  
 
 
 ### Verkefnalýsing frá kennara
